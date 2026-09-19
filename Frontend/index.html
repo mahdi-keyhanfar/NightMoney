@@ -4,12 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NIGHTMONEY | Finance Management</title>
-    <link rel="icon" type="image/png" href="./assets/image/increase-94.png">
+    <title>NIGHTMONEY | Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
+    <main class="login-page">
 
+        <div class="login-card">
+
+            <div class="brand">
+                <div class="brand-mark">N</div>
+
+                <div>
+                    <h1>NIGHTMONEY</h1>
+                    <p>Personal Finance Management</p>
+                </div>
+            </div>
+
+
+            <div class="login-content">
+
+                <h2>Welcome back</h2>
+                <p class="login-description">
+                    Sign in to access your financial dashboard.
+                </p>
+
+
+                <form id="loginForm">
+
+                    <div class="input-group">
+                        <label for="username">Username</label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter your username"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
+
+
+                    <div id="loginMessage" class="login-message"></div>
+
+
+                    <button type="submit" class="login-button">
+                        Sign In
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <div class="login-footer">
+                <span>NIGHTMONEY</span>
+                <span>Finance Management System</span>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/script.js"></script>
 
 </body>
 </html>
