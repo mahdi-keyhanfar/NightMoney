@@ -1,0 +1,787 @@
+:root {
+    --bg-main: #0B0F14;
+    --bg-sidebar: #0D141C;
+    --bg-card: #111820;
+    --bg-input: #0D141C;
+
+    --border: #1B2633;
+
+    --primary: #00D4A8;
+    --primary-dark: #00A985;
+
+    --text-main: #F5F7FA;
+    --text-secondary: #7C8A9A;
+
+    --red: #FF5C5C;
+    --yellow: #F5B942;
+}
+
+
+/* =========================
+   Reset
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--bg-main);
+    color: var(--text-main);
+
+    min-height: 100vh;
+}
+
+
+/* =========================
+   App
+========================= */
+
+.app {
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* =========================
+   Sidebar
+========================= */
+
+.sidebar {
+    width: 250px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg-sidebar);
+
+    border-right: 1px solid var(--border);
+
+    padding: 24px 16px;
+}
+
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 4px 8px 30px;
+}
+
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+    color: var(--bg-main);
+
+    border-radius: 10px;
+
+    font-weight: 800;
+    font-size: 20px;
+}
+
+
+.sidebar-brand h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+
+.sidebar-brand span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   Navigation
+========================= */
+
+.navigation {
+    flex: 1;
+}
+
+
+.nav-title {
+    color: #526170;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin: 20px 10px 8px;
+}
+
+
+.nav-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    margin-bottom: 3px;
+
+    border-radius: 8px;
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+
+.nav-item span {
+    width: 18px;
+
+    text-align: center;
+
+    font-size: 16px;
+}
+
+
+.nav-item:hover {
+    background: #151F2A;
+
+    color: var(--text-main);
+}
+
+
+.nav-item.active {
+    background: rgba(0, 212, 168, 0.10);
+
+    color: var(--primary);
+}
+
+
+/* =========================
+   User
+========================= */
+
+.user-box {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 8px 0;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.user-avatar,
+.profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #1B2633;
+
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+
+.user-avatar {
+    width: 34px;
+    height: 34px;
+
+    font-size: 13px;
+}
+
+
+.user-box strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+
+.user-box span {
+    color: var(--text-secondary);
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   Main
+========================= */
+
+.main-content {
+    width: calc(100% - 250px);
+
+    margin-left: 250px;
+}
+
+
+/* =========================
+   Topbar
+========================= */
+
+.topbar {
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(11, 15, 20, 0.8);
+}
+
+
+.welcome {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    margin-bottom: 5px;
+}
+
+
+.topbar h1 {
+    font-size: 20px;
+}
+
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.icon-button {
+    width: 38px;
+    height: 38px;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+}
+
+
+.profile-button {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 5px 10px 5px 5px;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    color: var(--text-main);
+
+    cursor: pointer;
+}
+
+
+.profile-avatar {
+    width: 28px;
+    height: 28px;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   Dashboard
+========================= */
+
+.dashboard {
+    padding: 30px 32px;
+}
+
+
+/* =========================
+   Stats
+========================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+
+.stat-card,
+.panel {
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+}
+
+
+.stat-card {
+    padding: 20px;
+}
+
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+}
+
+
+.stat-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+
+.stat-icon.balance,
+.stat-icon.savings {
+    background: rgba(0, 212, 168, 0.10);
+
+    color: var(--primary);
+}
+
+
+.stat-icon.income {
+    background: rgba(0, 212, 168, 0.08);
+
+    color: var(--primary);
+}
+
+
+.stat-icon.expense {
+    background: rgba(255, 92, 92, 0.10);
+
+    color: var(--red);
+}
+
+
+.stat-card h2 {
+    margin: 18px 0 8px;
+
+    font-size: 24px;
+}
+
+
+.positive {
+    color: var(--primary);
+}
+
+
+.negative {
+    color: var(--red);
+}
+
+
+.stat-card p {
+    font-size: 11px;
+}
+
+
+.stat-card p span {
+    color: var(--text-secondary);
+
+    margin-left: 4px;
+}
+
+
+/* =========================
+   Panels
+========================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 16px;
+
+    margin-bottom: 16px;
+}
+
+
+.panel {
+    padding: 20px;
+}
+
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+
+.panel-header h3 {
+    font-size: 14px;
+}
+
+
+.panel-header p {
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    margin-top: 5px;
+}
+
+
+.panel-header select {
+    background: var(--bg-input);
+
+    border: 1px solid var(--border);
+
+    color: var(--text-secondary);
+
+    padding: 8px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   Charts
+========================= */
+
+.chart-container {
+    height: 270px;
+}
+
+
+.expense-chart {
+    height: 170px;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.expense-list {
+    margin-top: 15px;
+}
+
+
+.expense-list div {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+}
+
+
+.expense-list strong {
+    margin-left: auto;
+
+    color: var(--text-main);
+}
+
+
+.dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+}
+
+
+.food {
+    opacity: 0.75;
+}
+
+
+.transport {
+    opacity: 0.55;
+}
+
+
+.other {
+    opacity: 0.35;
+}
+
+
+/* =========================
+   Transactions
+========================= */
+
+.transaction {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.transaction:last-child {
+    border-bottom: none;
+}
+
+
+.transaction-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+}
+
+
+.income-icon {
+    background: rgba(0, 212, 168, 0.10);
+
+    color: var(--primary);
+}
+
+
+.expense-icon {
+    background: rgba(255, 92, 92, 0.10);
+
+    color: var(--red);
+}
+
+
+.transaction-info {
+    flex: 1;
+}
+
+
+.transaction-info strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+
+.transaction-info span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+}
+
+
+.transaction-amount {
+    font-size: 12px;
+}
+
+
+.view-button {
+    background: transparent;
+
+    border: none;
+
+    color: var(--primary);
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   Goals
+========================= */
+
+.goal {
+    margin-bottom: 22px;
+}
+
+
+.goal-top {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+}
+
+
+.goal-top strong {
+    color: var(--primary);
+}
+
+
+.progress {
+    height: 6px;
+
+    background: #1B2633;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.progress div {
+    height: 100%;
+
+    background: var(--primary);
+
+    border-radius: inherit;
+}
+
+
+.goal small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: var(--text-secondary);
+
+    font-size: 9px;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 1100px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 70px;
+
+        padding: 20px 10px;
+    }
+
+    .sidebar-brand div:not(.brand-mark),
+    .nav-item:not(.active)::after,
+    .nav-title,
+    .nav-item {
+        font-size: 0;
+    }
+
+    .sidebar-brand {
+        justify-content: center;
+    }
+
+    .nav-item {
+        justify-content: center;
+    }
+
+    .nav-item span {
+        font-size: 17px;
+    }
+
+    .main-content {
+        width: calc(100% - 70px);
+
+        margin-left: 70px;
+    }
+
+    .dashboard {
+        padding: 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        padding: 0 20px;
+    }
+
+    .profile-button {
+        font-size: 0;
+    }
+}

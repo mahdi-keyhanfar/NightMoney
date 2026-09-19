@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NIGHTMONEY | Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <div class="brand-mark">N</div>
+
+                <div>
+                    <h2>NIGHTMONEY</h2>
+                    <span>Finance System</span>
+                </div>
+            </div>
+
+
+            <nav class="navigation">
+
+                <p class="nav-title">MAIN</p>
+
+                <a href="#" class="nav-item active">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>↕</span>
+                    Transactions
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>◫</span>
+                    Accounts
+                </a>
+
+
+                <p class="nav-title">MANAGEMENT</p>
+
+                <a href="#" class="nav-item">
+                    <span>↓</span>
+                    Income
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>↑</span>
+                    Expenses
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>◷</span>
+                    Budgets
+                </a>
+
+
+                <p class="nav-title">ANALYTICS</p>
+
+                <a href="#" class="nav-item">
+                    <span>⌁</span>
+                    Reports
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="user-box">
+                    <div class="user-avatar">H</div>
+
+                    <div>
+                        <strong>Admin</strong>
+                        <span>Administrator</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <div>
+                    <p class="welcome">Welcome back,</p>
+                    <h1>Financial Overview</h1>
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <button class="icon-button">
+                        ◐
+                    </button>
+
+                    <button class="profile-button">
+                        <span class="profile-avatar">H</span>
+                        Admin
+                        <span>⌄</span>
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- Dashboard -->
+            <section class="dashboard">
+
+                <!-- Stats -->
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-header">
+                            <span>Total Balance</span>
+                            <div class="stat-icon balance">₿</div>
+                        </div>
+
+                        <h2>$24,850.00</h2>
+
+                        <p class="positive">
+                            +8.4%
+                            <span>vs last month</span>
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-header">
+                            <span>Income</span>
+                            <div class="stat-icon income">↓</div>
+                        </div>
+
+                        <h2>$8,420.00</h2>
+
+                        <p class="positive">
+                            +12.6%
+                            <span>vs last month</span>
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-header">
+                            <span>Expenses</span>
+                            <div class="stat-icon expense">↑</div>
+                        </div>
+
+                        <h2>$3,680.00</h2>
+
+                        <p class="negative">
+                            +4.2%
+                            <span>vs last month</span>
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-header">
+                            <span>Savings</span>
+                            <div class="stat-icon savings">◆</div>
+                        </div>
+
+                        <h2>$4,740.00</h2>
+
+                        <p class="positive">
+                            +18.2%
+                            <span>vs last month</span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Charts -->
+                <div class="dashboard-grid">
+
+                    <div class="panel chart-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h3>Cash Flow</h3>
+                                <p>Income and expenses overview</p>
+                            </div>
+
+                            <select id="chartPeriod">
+                                <option>Last 7 days</option>
+                                <option>Last 30 days</option>
+                                <option>Last 6 months</option>
+                            </select>
+
+                        </div>
+
+                        <div class="chart-container">
+                            <canvas id="cashFlowChart"></canvas>
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h3>Expense Breakdown</h3>
+                                <p>Where your money goes</p>
+                            </div>
+
+                        </div>
+
+                        <div class="expense-chart">
+
+                            <canvas id="expenseChart"></canvas>
+
+                        </div>
+
+                        <div class="expense-list">
+
+                            <div>
+                                <span class="dot housing"></span>
+                                Housing
+                                <strong>32%</strong>
+                            </div>
+
+                            <div>
+                                <span class="dot food"></span>
+                                Food
+                                <strong>24%</strong>
+                            </div>
+
+                            <div>
+                                <span class="dot transport"></span>
+                                Transport
+                                <strong>18%</strong>
+                            </div>
+
+                            <div>
+                                <span class="dot other"></span>
+                                Other
+                                <strong>26%</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Bottom -->
+                <div class="dashboard-grid bottom-grid">
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h3>Recent Transactions</h3>
+                                <p>Your latest financial activity</p>
+                            </div>
+
+                            <button class="view-button">
+                                View All
+                            </button>
+
+                        </div>
+
+
+                        <div class="transactions">
+
+                            <div class="transaction">
+
+                                <div class="transaction-icon income-icon">
+                                    ↓
+                                </div>
+
+                                <div class="transaction-info">
+                                    <strong>Salary</strong>
+                                    <span>Today · Income</span>
+                                </div>
+
+                                <strong class="transaction-amount positive">
+                                    +$4,200
+                                </strong>
+
+                            </div>
+
+
+                            <div class="transaction">
+
+                                <div class="transaction-icon expense-icon">
+                                    ↑
+                                </div>
+
+                                <div class="transaction-info">
+                                    <strong>Car Maintenance</strong>
+                                    <span>Yesterday · Transport</span>
+                                </div>
+
+                                <strong class="transaction-amount">
+                                    -$320
+                                </strong>
+
+                            </div>
+
+
+                            <div class="transaction">
+
+                                <div class="transaction-icon expense-icon">
+                                    ↑
+                                </div>
+
+                                <div class="transaction-info">
+                                    <strong>Groceries</strong>
+                                    <span>Sep 17 · Food</span>
+                                </div>
+
+                                <strong class="transaction-amount">
+                                    -$145
+                                </strong>
+
+                            </div>
+
+
+                            <div class="transaction">
+
+                                <div class="transaction-icon income-icon">
+                                    ↓
+                                </div>
+
+                                <div class="transaction-info">
+                                    <strong>Freelance Project</strong>
+                                    <span>Sep 16 · Income</span>
+                                </div>
+
+                                <strong class="transaction-amount positive">
+                                    +$850
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h3>Financial Goals</h3>
+                                <p>Track your progress</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="goal">
+
+                            <div class="goal-top">
+                                <span>Emergency Fund</span>
+                                <strong>72%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <div style="width: 72%;"></div>
+                            </div>
+
+                            <small>$7,200 / $10,000</small>
+
+                        </div>
+
+
+                        <div class="goal">
+
+                            <div class="goal-top">
+                                <span>New Car</span>
+                                <strong>38%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <div style="width: 38%;"></div>
+                            </div>
+
+                            <small>$11,400 / $30,000</small>
+
+                        </div>
+
+
+                        <div class="goal">
+
+                            <div class="goal-top">
+                                <span>Investment</span>
+                                <strong>54%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <div style="width: 54%;"></div>
+                            </div>
+
+                            <small>$5,400 / $10,000</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>
