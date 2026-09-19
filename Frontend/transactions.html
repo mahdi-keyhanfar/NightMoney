@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NIGHTMONEY | Transactions</title>
+
+    <link rel="stylesheet" href="css/transactions.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="brand-mark">N</div>
+
+                <div>
+                    <h2>NIGHTMONEY</h2>
+                    <span>Finance System</span>
+                </div>
+
+            </div>
+
+
+            <nav class="navigation">
+
+                <p class="nav-title">MAIN</p>
+
+                <a href="./dashboard.html" class="nav-item">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="transactions.html" class="nav-item active">
+                    <span>↕</span>
+                    Transactions
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>◫</span>
+                    Accounts
+                </a>
+
+
+                <p class="nav-title">MANAGEMENT</p>
+
+                <a href="#" class="nav-item">
+                    <span>↓</span>
+                    Income
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>↑</span>
+                    Expenses
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>◷</span>
+                    Budgets
+                </a>
+
+
+                <p class="nav-title">ANALYTICS</p>
+
+                <a href="#" class="nav-item">
+                    <span>⌁</span>
+                    Reports
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="user-box">
+
+                    <div class="user-avatar">H</div>
+
+                    <div>
+                        <strong>Admin</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Topbar -->
+            <header class="topbar">
+
+                <div>
+                    <p class="welcome">Finance Management</p>
+                    <h1>Transactions</h1>
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <button class="icon-button">
+                        ◐
+                    </button>
+
+                    <button class="profile-button">
+                        <span class="profile-avatar">H</span>
+                        Admin
+                        <span>⌄</span>
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- Page -->
+            <section class="transactions-page">
+
+
+                <!-- Page Header -->
+                <div class="page-header">
+
+                    <div>
+                        <h2>All Transactions</h2>
+
+                        <p>
+                            Manage and track your financial activity.
+                        </p>
+                    </div>
+
+
+                    <button
+                        class="add-button"
+                        id="openModalButton"
+                    >
+                        + Add Transaction
+                    </button>
+
+                </div>
+
+
+                <!-- Summary -->
+                <div class="summary-grid">
+
+                    <div class="summary-card">
+
+                        <span>Total Transactions</span>
+
+                        <strong id="totalTransactions">
+                            8
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card income-card">
+
+                        <span>Total Income</span>
+
+                        <strong id="totalIncome">
+                            $9,050
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card expense-card">
+
+                        <span>Total Expenses</span>
+
+                        <strong id="totalExpenses">
+                            $4,235
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <span>Net Cash Flow</span>
+
+                        <strong id="netCashFlow">
+                            $4,815
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Filters -->
+                <div class="filters-panel">
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search transactions..."
+                        >
+
+                    </div>
+
+
+                    <select id="typeFilter">
+
+                        <option value="all">
+                            All Types
+                        </option>
+
+                        <option value="income">
+                            Income
+                        </option>
+
+                        <option value="expense">
+                            Expense
+                        </option>
+
+                    </select>
+
+
+                    <select id="categoryFilter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="salary">
+                            Salary
+                        </option>
+
+                        <option value="food">
+                            Food
+                        </option>
+
+                        <option value="transport">
+                            Transport
+                        </option>
+
+                        <option value="shopping">
+                            Shopping
+                        </option>
+
+                        <option value="business">
+                            Business
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        class="clear-button"
+                        id="clearFilters"
+                    >
+                        Clear
+                    </button>
+
+                </div>
+
+
+                <!-- Transactions Table -->
+                <div class="transactions-panel">
+
+                    <div class="table-header">
+
+                        <h3>Transactions</h3>
+
+                        <span id="transactionCount">
+                            8 transactions
+                        </span>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th></th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="transactionList">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Add Transaction Modal -->
+
+    <div
+        class="modal"
+        id="transactionModal"
+    >
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+                    <h3>Add Transaction</h3>
+
+                    <p>
+                        Add a new financial transaction.
+                    </p>
+                </div>
+
+                <button id="closeModal">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="transactionForm">
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="e.g. Salary"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="amount">
+                            Amount
+                        </label>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            placeholder="0"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="transactionType">
+                            Type
+                        </label>
+
+                        <select id="transactionType">
+
+                            <option value="income">
+                                Income
+                            </option>
+
+                            <option value="expense">
+                                Expense
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="category">
+                            Category
+                        </label>
+
+                        <select id="category">
+
+                            <option value="salary">
+                                Salary
+                            </option>
+
+                            <option value="food">
+                                Food
+                            </option>
+
+                            <option value="transport">
+                                Transport
+                            </option>
+
+                            <option value="shopping">
+                                Shopping
+                            </option>
+
+                            <option value="business">
+                                Business
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="date">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancelButton"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Add Transaction
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/transactions.js"></script>
+
+</body>
+
+</html>
