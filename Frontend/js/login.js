@@ -457,6 +457,13 @@ loginForm.addEventListener("submit", async (event) => {
         translations[currentLanguage].loginSuccess
     );
 
+    setTimeout(() => {
+
+        window.location.href =
+            "dashboard.html";
+
+    }, 700);
+
 });
 
 

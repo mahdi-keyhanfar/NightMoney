@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Night Money | Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="dashboard-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+                N
+            </div>
+
+            <div class="sidebar-brand-text">
+
+                <h2>Night Money</h2>
+
+                <span data-i18n="managementSystem">
+                    Management System
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-navigation">
+
+            <p
+                class="navigation-title"
+                data-i18n="mainMenu"
+            >
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="#"
+                class="navigation-item active"
+                data-page="dashboard"
+            >
+
+                <span class="navigation-icon">⌂</span>
+
+                <span data-i18n="dashboard">
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="navigation-item"
+                data-page="products"
+            >
+
+                <span class="navigation-icon">▣</span>
+
+                <span data-i18n="products">
+                    Products
+                </span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="navigation-item"
+                data-page="transactions"
+            >
+
+                <span class="navigation-icon">↔</span>
+
+                <span data-i18n="transactions">
+                    Transactions
+                </span>
+
+            </a>
+
+
+            <p
+                class="navigation-title second-title"
+                data-i18n="management"
+            >
+                MANAGEMENT
+            </p>
+
+
+            <a
+                href="#"
+                class="navigation-item"
+                data-page="inventory"
+            >
+
+                <span class="navigation-icon">▤</span>
+
+                <span data-i18n="inventory">
+                    Inventory
+                </span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="navigation-item"
+                data-page="sales"
+            >
+
+                <span class="navigation-icon">↗</span>
+
+                <span data-i18n="sales">
+                    Sales
+                </span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="navigation-item"
+                data-page="purchases"
+            >
+
+                <span class="navigation-icon">↙</span>
+
+                <span data-i18n="purchases">
+                    Purchases
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong data-i18n="systemOnline">
+                        System Online
+                    </strong>
+
+                    <small data-i18n="servicesOperational">
+                        All services operational
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <span
+                        class="page-label"
+                        data-i18n="management"
+                    >
+                        Management
+                    </span>
+
+                    <h1 data-i18n="dashboard">
+                        Dashboard
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+
+                <!-- Language -->
+
+                <button
+                    type="button"
+                    class="topbar-button language-button"
+                    id="languageToggle"
+                >
+                    FA
+                </button>
+
+
+                <!-- Theme -->
+
+                <button
+                    type="button"
+                    class="topbar-button"
+                    id="themeToggle"
+                    aria-label="Toggle theme"
+                >
+
+                    <span id="themeIcon">
+                        ☾
+                    </span>
+
+                </button>
+
+
+                <!-- Account -->
+
+                <div class="account-wrapper">
+
+                    <button
+                        type="button"
+                        class="account-button"
+                        id="accountButton"
+                    >
+
+                        <div class="account-avatar">
+                            A
+                        </div>
+
+                        <div class="account-information">
+
+                            <strong>
+                                Admin
+                            </strong>
+
+                            <span data-i18n="administrator">
+                                Administrator
+                            </span>
+
+                        </div>
+
+                        <span class="account-arrow">
+                            ▾
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="account-menu"
+                        id="accountMenu"
+                    >
+
+                        <button data-i18n="profile">
+                            Profile
+                        </button>
+
+                        <button data-i18n="settings">
+                            Settings
+                        </button>
+
+                        <button
+                            class="logout-option"
+                            data-i18n="logout"
+                        >
+                            Logout
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD CONTENT
+             ================================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================================
+                 HEADING
+                 ================================================= -->
+
+            <section class="dashboard-heading">
+
+                <div>
+
+                    <h2 data-i18n="overview">
+                        Overview
+                    </h2>
+
+                    <p data-i18n="overviewDescription">
+                        Here's what's happening with your business.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STAT CARDS
+                 ================================================= -->
+
+            <section class="stats-grid">
+
+
+                <!-- Revenue -->
+
+                <article class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon revenue-icon">
+                            $
+                        </div>
+
+                        <span
+                            class="stat-period"
+                            data-i18n="vsLastMonth"
+                        >
+                            vs last month
+                        </span>
+
+                    </div>
+
+                    <p
+                        class="stat-title"
+                        data-i18n="totalRevenue"
+                    >
+                        Total Revenue
+                    </p>
+
+                    <h3 class="stat-value">
+                        25,480,000 <span>T</span>
+                    </h3>
+
+                    <div class="stat-change positive">
+
+                        <span>↑</span>
+
+                        <strong>12.4%</strong>
+
+                        <small data-i18n="vsLastMonth">
+                            vs last month
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Expenses -->
+
+                <article class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon expense-icon">
+                            $
+                        </div>
+
+                        <span
+                            class="stat-period"
+                            data-i18n="vsLastMonth"
+                        >
+                            vs last month
+                        </span>
+
+                    </div>
+
+                    <p
+                        class="stat-title"
+                        data-i18n="totalExpenses"
+                    >
+                        Total Expenses
+                    </p>
+
+                    <h3 class="stat-value">
+                        9,240,000 <span>T</span>
+                    </h3>
+
+                    <div class="stat-change negative">
+
+                        <span>↓</span>
+
+                        <strong>4.2%</strong>
+
+                        <small data-i18n="vsLastMonth">
+                            vs last month
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Profit -->
+
+                <article class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon profit-icon">
+                            ◈
+                        </div>
+
+                        <span
+                            class="stat-period"
+                            data-i18n="vsLastMonth"
+                        >
+                            vs last month
+                        </span>
+
+                    </div>
+
+                    <p
+                        class="stat-title"
+                        data-i18n="netProfit"
+                    >
+                        Net Profit
+                    </p>
+
+                    <h3 class="stat-value">
+                        16,240,000 <span>T</span>
+                    </h3>
+
+                    <div class="stat-change positive">
+
+                        <span>↑</span>
+
+                        <strong>18.2%</strong>
+
+                        <small data-i18n="vsLastMonth">
+                            vs last month
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Inventory -->
+
+                <article class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon inventory-icon">
+                            ▣
+                        </div>
+
+                        <span
+                            class="stat-period"
+                            data-i18n="vsLastMonth"
+                        >
+                            vs last month
+                        </span>
+
+                    </div>
+
+                    <p
+                        class="stat-title"
+                        data-i18n="inventoryValue"
+                    >
+                        Inventory Value
+                    </p>
+
+                    <h3 class="stat-value">
+                        45,800,000 <span>T</span>
+                    </h3>
+
+                    <div class="stat-change positive">
+
+                        <span>↑</span>
+
+                        <strong>7.1%</strong>
+
+                        <small data-i18n="vsLastMonth">
+                            vs last month
+                        </small>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CHARTS
+                 ================================================= -->
+
+            <section class="charts-grid">
+
+
+                <!-- Revenue / Expenses -->
+
+                <article class="dashboard-card revenue-chart-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3 data-i18n="revenueExpenses">
+                                Revenue & Expenses
+                            </h3>
+
+                            <p data-i18n="incomeExpensesOverTime">
+                                Income and expenses over time
+                            </p>
+
+                        </div>
+
+
+                        <div class="period-selector">
+
+                            <button data-period="7d">
+                                7D
+                            </button>
+
+                            <button
+                                data-period="30d"
+                                class="active"
+                            >
+                                30D
+                            </button>
+
+                            <button data-period="3m">
+                                3M
+                            </button>
+
+                            <button data-period="1y">
+                                1Y
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="revenueExpenseChart"
+                        ></canvas>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Profit -->
+
+                <article class="dashboard-card profit-chart-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3 data-i18n="profitOverview">
+                                Profit Overview
+                            </h3>
+
+                            <p data-i18n="revenueMinusExpenses">
+                                Revenue minus expenses
+                            </p>
+
+                        </div>
+
+                        <span class="chart-value">
+                            16.24M T
+                        </span>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="profitChart"
+                        ></canvas>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 INVENTORY / LOW STOCK
+                 ================================================= -->
+
+            <section class="content-grid">
+
+
+                <!-- Inventory -->
+
+                <article class="dashboard-card inventory-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3 data-i18n="inventoryStatus">
+                                Inventory Status
+                            </h3>
+
+                            <p data-i18n="currentStockOverview">
+                                Current stock overview
+                            </p>
+
+                        </div>
+
+                        <a href="#" data-i18n="viewAll">
+                            View all
+                        </a>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th data-i18n="product">
+                                        Product
+                                    </th>
+
+                                    <th data-i18n="code">
+                                        Code
+                                    </th>
+
+                                    <th data-i18n="quantity">
+                                        Quantity
+                                    </th>
+
+                                    <th data-i18n="value">
+                                        Value
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Wireless Headphones
+                                    </td>
+
+                                    <td>
+                                        WH-001
+                                    </td>
+
+                                    <td>
+                                        42
+                                    </td>
+
+                                    <td>
+                                        8,400,000 T
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Smart Watch Pro
+                                    </td>
+
+                                    <td>
+                                        SW-002
+                                    </td>
+
+                                    <td>
+                                        27
+                                    </td>
+
+                                    <td>
+                                        13,500,000 T
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        USB-C Charger
+                                    </td>
+
+                                    <td>
+                                        UC-003
+                                    </td>
+
+                                    <td>
+                                        64
+                                    </td>
+
+                                    <td>
+                                        3,840,000 T
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Low Stock -->
+
+                <article class="dashboard-card low-stock-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3 data-i18n="lowStock">
+                                Low Stock
+                            </h3>
+
+                            <p data-i18n="productsAttention">
+                                Products requiring attention
+                            </p>
+
+                        </div>
+
+                        <span class="warning-badge">
+                            3 Items
+                        </span>
+
+                    </div>
+
+
+                    <div class="low-stock-list">
+
+
+                        <div class="low-stock-item">
+
+                            <div class="low-stock-product">
+
+                                <div class="product-mini-icon">
+                                    ◈
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Gaming Mouse
+                                    </strong>
+
+                                    <span>
+                                        GM-014
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="stock-count danger">
+                                2 left
+                            </div>
+
+                        </div>
+
+
+                        <div class="low-stock-item">
+
+                            <div class="low-stock-product">
+
+                                <div class="product-mini-icon">
+                                    ◈
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Keyboard
+                                    </strong>
+
+                                    <span>
+                                        KB-021
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="stock-count warning">
+                                4 left
+                            </div>
+
+                        </div>
+
+
+                        <div class="low-stock-item">
+
+                            <div class="low-stock-product">
+
+                                <div class="product-mini-icon">
+                                    ◈
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Power Bank
+                                    </strong>
+
+                                    <span>
+                                        PB-008
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="stock-count warning">
+                                5 left
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 TRANSACTIONS
+                 ================================================= -->
+
+            <section class="content-grid">
+
+
+                <!-- Recent Transactions -->
+
+                <article class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3 data-i18n="recentTransactions">
+                                Recent Transactions
+                            </h3>
+
+                            <p data-i18n="latestFinancialActivity">
+                                Latest financial activity
+                            </p>
+
+                        </div>
+
+                        <a href="#" data-i18n="viewAllTransactions">
+                            View all transactions
+                        </a>
+
+                    </div>
+
+
+                    <div class="transaction-list">
+
+
+                        <div class="transaction-item">
+
+                            <div class="transaction-icon sale">
+                                ↑
+                            </div>
+
+                            <div class="transaction-info">
+
+                                <strong>
+                                    Sale #TRX-1042
+                                </strong>
+
+                                <span>
+                                    Wireless Headphones
+                                </span>
+
+                            </div>
+
+                            <div class="transaction-amount positive">
+                                +1,200,000 T
+                            </div>
+
+                        </div>
+
+
+                        <div class="transaction-item">
+
+                            <div class="transaction-icon purchase">
+                                ↓
+                            </div>
+
+                            <div class="transaction-info">
+
+                                <strong>
+                                    Purchase #TRX-1041
+                                </strong>
+
+                                <span>
+                                    Smart Watch Pro
+                                </span>
+
+                            </div>
+
+                            <div class="transaction-amount negative">
+                                -4,500,000 T
+                            </div>
+
+                        </div>
+
+
+                        <div class="transaction-item">
+
+                            <div class="transaction-icon sale">
+                                ↑
+                            </div>
+
+                            <div class="transaction-info">
+
+                                <strong>
+                                    Sale #TRX-1040
+                                </strong>
+
+                                <span>
+                                    USB-C Charger
+                                </span>
+
+                            </div>
+
+                            <div class="transaction-amount positive">
+                                +640,000 T
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Sales & Purchases -->
+
+                <article class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3 data-i18n="recentSalesPurchases">
+                                Recent Sales & Purchases
+                            </h3>
+
+                            <p data-i18n="latestStockMovements">
+                                Latest stock movements
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="sales-purchases-list">
+
+
+                        <div class="sale-purchase-item">
+
+                            <div class="movement-badge sale">
+                                Sale
+                            </div>
+
+                            <div class="movement-product">
+
+                                <strong>
+                                    Wireless Headphones
+                                </strong>
+
+                                <span>
+                                    3 units
+                                </span>
+
+                            </div>
+
+                            <strong class="movement-value">
+                                600,000 T
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sale-purchase-item">
+
+                            <div class="movement-badge purchase">
+                                Purchase
+                            </div>
+
+                            <div class="movement-product">
+
+                                <strong>
+                                    Smart Watch Pro
+                                </strong>
+
+                                <span>
+                                    10 units
+                                </span>
+
+                            </div>
+
+                            <strong class="movement-value">
+                                5,000,000 T
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sale-purchase-item">
+
+                            <div class="movement-badge sale">
+                                Sale
+                            </div>
+
+                            <div class="movement-product">
+
+                                <strong>
+                                    USB-C Charger
+                                </strong>
+
+                                <span>
+                                    8 units
+                                </span>
+
+                            </div>
+
+                            <strong class="movement-value">
+                                480,000 T
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 QUICK ACTIONS / MONTHLY SUMMARY
+                 ================================================= -->
+
+            <section class="bottom-grid">
+
+
+                <!-- Quick Actions -->
+
+                <article class="dashboard-card quick-actions-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3 data-i18n="quickActions">
+                                Quick Actions
+                            </h3>
+
+                            <p data-i18n="frequentlyUsedActions">
+                                Frequently used actions
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+
+                        <button class="quick-action">
+
+                            <span class="quick-action-icon">
+                                +
+                            </span>
+
+                            <span data-i18n="addTransaction">
+                                Add Transaction
+                            </span>
+
+                        </button>
+
+
+                        <button class="quick-action">
+
+                            <span class="quick-action-icon">
+                                +
+                            </span>
+
+                            <span data-i18n="addProduct">
+                                Add Product
+                            </span>
+
+                        </button>
+
+
+                        <button class="quick-action">
+
+                            <span class="quick-action-icon sale">
+                                ↑
+                            </span>
+
+                            <span data-i18n="recordSale">
+                                Record Sale
+                            </span>
+
+                        </button>
+
+
+                        <button class="quick-action">
+
+                            <span class="quick-action-icon purchase">
+                                ↓
+                            </span>
+
+                            <span data-i18n="recordPurchase">
+                                Record Purchase
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Monthly Summary -->
+
+                <article class="dashboard-card monthly-summary-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h3 data-i18n="currentMonth">
+                                Current Month
+                            </h3>
+
+                            <p id="currentMonthLabel">
+                                September 2026
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="monthly-summary-grid">
+
+
+                        <div class="summary-item">
+
+                            <span data-i18n="profit">
+                                Profit
+                            </span>
+
+                            <strong>
+                                16.24M T
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-item">
+
+                            <span data-i18n="purchases">
+                                Purchases
+                            </span>
+
+                            <strong>
+                                84
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-item">
+
+                            <span data-i18n="sales">
+                                Sales
+                            </span>
+
+                            <strong>
+                                126
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-item">
+
+                            <span data-i18n="expenses">
+                                Expenses
+                            </span>
+
+                            <strong>
+                                9.24M T
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-item">
+
+                            <span data-i18n="revenue">
+                                Revenue
+                            </span>
+
+                            <strong>
+                                25.48M T
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
