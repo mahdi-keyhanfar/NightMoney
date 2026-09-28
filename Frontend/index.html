@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Night Money — Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="login-page">
+
+    <main class="login-container">
+
+        <section class="login-card">
+
+            <div class="login-brand">
+                <div class="brand-mark">N</div>
+
+                <div>
+                    <h1>NIGHT MONEY</h1>
+                    <span>NIGHT MOTORS</span>
+                </div>
+            </div>
+
+            <div class="login-heading">
+                <h2>Welcome back</h2>
+                <p>Sign in to your management dashboard.</p>
+            </div>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label for="username">Email or Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="admin@nightmotors.com"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <div class="password-field">
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="passwordToggle"
+                            aria-label="Show password"
+                        >
+                            ◉
+                        </button>
+                    </div>
+                </div>
+
+                <div class="login-options">
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+
+                    <a href="#" onclick="return false;">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+                <button class="btn btn-primary login-btn" type="submit">
+                    Sign In
+                </button>
+
+                <p id="loginError" class="form-error"></p>
+
+            </form>
+
+            <div class="login-footer">
+                <span>Internal Business Management System</span>
+                <span>v1.0.0</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const password = document.getElementById("password");
+        const passwordToggle = document.getElementById("passwordToggle");
+        const loginError = document.getElementById("loginError");
+
+        passwordToggle.addEventListener("click", () => {
+            const isPassword = password.type === "password";
+
+            password.type = isPassword ? "text" : "password";
+            passwordToggle.textContent = isPassword ? "◉" : "○";
+        });
+
+        loginForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const passwordValue = password.value.trim();
+            const rememberMe = document.getElementById("rememberMe").checked;
+
+            if (!username || !passwordValue) {
+                loginError.textContent = "Please enter your username and password.";
+                return;
+            }
+
+            const user = {
+                name: "Alex Morgan",
+                username: username,
+                role: "Financial Manager"
+            };
+
+            localStorage.setItem("nightMoneyAuth", "true");
+            localStorage.setItem("nightMoneyUser", JSON.stringify(user));
+
+            if (rememberMe) {
+                localStorage.setItem("nightMoneyRemember", "true");
+            }
+
+            window.location.href = "dashboard.html";
+        });
+    </script>
+
+</body>
+</html>
